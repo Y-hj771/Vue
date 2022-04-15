@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./axios.js"></script>
+</head>
+<body>
+    <button id="btn">发起GET请求</button>
+    <script>
+        document.querySelector('#btn').addEventListener('click',async function(){
+            // 1.使用完axios之后利用await/async 进行简化
+            // 2.使用结构赋值，从axios封住的大对象中把data属性结构出来
+            // 3.把结构出来的data属性，使用：进行重命名 一般为{ data.res }
+            // { : } 解构赋值的时候利用：表示进行重命名
+            const { data:res } = await axios({
+                method:'GET',
+                url:'http://www.liulongbin.top:3006/api/getbooks',
+                params:{
+                    id:1
+                }
+            })
+            console.log(res.data);
+            // .then(function(res){
+            //     console.log(res);
+            // })
+        })
+    </script>
+</body>
+</html>

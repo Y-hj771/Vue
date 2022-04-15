@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+</head>
+<body>
+    <div id="app">
+        <table class="table table-hover">
+            <thead>
+                <th>序号</th>
+                <th>ID</th>
+                <th>名字</th>
+            </thead>
+            <tbody>
+                <!-- 只要用到v-for就一定要有一个:key属性 尽量把id作为key的值 key的值为字符串或者数字类型 -->
+                <tr v-for="(item,index) in list" :key="item.id">
+                    <td>{{ index }}</td>
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.name }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                list:[
+                    {id:1,name:"nike"},
+                    {id:2,name:"mike"},
+                    {id:3,name:"tike"}
+                ]
+            }
+            
+        })
+    </script>
+</body>
+</html>

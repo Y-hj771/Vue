@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- |是管道符 前面是过滤的内容 后面是过滤函数 -->
+        <p>{{ message | cat}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        // 全局过滤器
+         Vue.filter('cat',(str)=>{
+            const first = str.charAt(0).toUpperCase()
+                    // slice(index)表示从相应索引号之后截取字符串
+                    const other = str.slice(1)
+                    // 一定要有return
+                    return first + other; 
+            })
+
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'hello vue'
+            },
+            // 局部过滤器
+            // filters:{
+            //     // n为形参 代表管道符前面的值
+            //     cat:function(n){
+            //         //charAt(index)表示提取对应索引号的值 将其转换为大写
+            //         const first = n.charAt(0).toUpperCase()
+            //         // slice(index)表示从相应索引号之后截取字符串
+            //         const other = n.slice(1)
+            //         // 一定要有return
+            //         return first + other;
+            //     }
+            // }
+           
+        })
+    </script>
+</body>
+</html>

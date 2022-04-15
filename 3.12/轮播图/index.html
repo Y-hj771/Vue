@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+              <img src="./imgs/logo.png" alt="">
+              校区环境
+            </h2>
+            <!-- 图片 -->
+            <img :src="imgArr[index]" alt="" />
+            <!-- 左箭头 -->
+            <a href="javascript:void(0)" v-show="index!=0" @click="prev" class="left">
+              <img src="./imgs/prev.png" alt="" />
+            </a>
+            <!-- 右箭头 -->
+            <a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next" class="right">
+                <img src="./imgs/next.png" alt="" />
+              </a>
+          </div> 
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var mask = new Vue({
+            el:'#mask',
+            data:{
+                imgArr:[
+                    "./imgs/00.jpg",
+                    "./imgs/01.jpg",
+                    "./imgs/02.jpg",
+                    "./imgs/03.jpg",
+                    "./imgs/04.jpg",
+                    "./imgs/05.jpg",
+                    "./imgs/06.jpg",
+                    "./imgs/07.jpg",
+                    "./imgs/08.jpg",
+                    "./imgs/09.jpg",
+                    "./imgs/10.jpg",
+                ],
+                index:0
+            },
+            methods:{
+                next:function(){
+                    this.index++
+                },
+                prev:function(){
+                    this.index--
+                }
+            }
+        })
+    </script>
+</body>
+</html>
